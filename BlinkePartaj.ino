@@ -1,3 +1,9 @@
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Project BlinkePartaj
+// Authors : Patrik Larsson, Andreas Stridh, Sebastian Aspegren,
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 // 0 get 0V,  255 ger 5v. 8 bitar är D/A
 // Måste vara byte för att bli analog (8bitar är en byte)
 //Inkomande bytes är -128 till 127, behövs inte omvandlas till 0-255
@@ -189,7 +195,7 @@ void loop()
   {
     // Send any characters the bluetooth prints to the serial monitor
     incomming = bluetooth.read();
-   // Serial.println(incomming);
+    Serial.println(incomming);
    // delay(1);
  //  incomming = test[sampleCounter];
    ligthShow(incomming);  
