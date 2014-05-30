@@ -60,12 +60,11 @@ void setup()
   bluetooth.begin(9600);
   delay(250);
 
-  pinMode(4, OUTPUT);
-  pinMode(5, OUTPUT);
-  pinMode(6, OUTPUT);
-  pinMode(7, OUTPUT);
-  pinMode(8, OUTPUT);
-  pinMode(9, OUTPUT);
+  for(int i = 4; i < 14; i++)
+  {
+    pinMode(i, OUTPUT);
+  }
+
 }
 /*
  * A Method that returns true if the buffert is full with samples
@@ -151,70 +150,76 @@ void ligthShow(int sampleMiddleValue)
   // delay(5);
   int musicByte = (sampleMiddleValue); 
   //LED 1
-  if( musicByte > Lys*2) // !!! VILKEN FREKVENS FÖR VILKEN LAMPA SOM SKA LYSA
+  if( musicByte > Lys*4) // !!! VILKEN FREKVENS FÖR VILKEN LAMPA SOM SKA LYSA
     digitalWrite(4, HIGH);
   else 
     digitalWrite(4,LOW);
   //LED2
-  if( musicByte > Lys*4) 
+  if( musicByte > Lys*6) 
     digitalWrite(5, HIGH);
   else 
     digitalWrite(5,LOW);
   //LED3
-  if( musicByte > Lys*6) 
+  if( musicByte > Lys*8) 
     digitalWrite(6, HIGH);
   else 
     digitalWrite(6,LOW);
   //LED4
-  if(musicByte > Lys*8) 
+  if(musicByte > Lys*10) 
     digitalWrite(7, HIGH);
   else 
     digitalWrite(7,LOW);
   //LED5
-  if( musicByte > Lys*10) 
+  if( musicByte > Lys*12) 
     digitalWrite(8, HIGH);
   else 
     digitalWrite(8,LOW);
   //LED6
-  if( musicByte > Lys*12) 
+  if( musicByte > Lys*14) 
     digitalWrite(9, HIGH);
   else 
     digitalWrite(9,LOW);
-  delay(100);
+    if( musicByte > Lys*16) 
+    digitalWrite(10, HIGH);
+  else 
+    digitalWrite(10,LOW);
+    if( musicByte > Lys*18) 
+    digitalWrite(11, HIGH);
+  else 
+    digitalWrite(11,LOW);
+    if( musicByte > Lys*20) 
+    digitalWrite(12, HIGH);
+  else 
+    digitalWrite(12,LOW);
+    if( musicByte > Lys*22) 
+    digitalWrite(13, HIGH);
+  
 }
 void loop()
 {
   //delay(1000);
-  //lagra = bluetooth.read();
+  //lagra = blueto6th.read();
   //Serial.println(lagra);
   //serial = Serial.read();
   //bluetooth.print(serial);
   //bluetooth.println("Saafft");
-  // Serial.print("HEj");
+  // Serial.print(8Ej");
   if(bluetooth.available() )  // If the bluetooth sent any characters
   {
     // Send any characters the bluetooth prints to the serial monitor
     incomming = bluetooth.read();
-    Serial.println(incomming);
+   // Serial.println(incomming);
    // delay(1);
  //  incomming = test[sampleCounter];
    ligthShow(incomming);  
    // delay(2);  
-//char apa = bluetooth.read();
+//char apa = blueto2th.read();
 //Serial.println(apa);
   // buffert(incomming);
    // if(Serial.available())  // If stuff was typed in the serial monitor
   //  {
-      // Send any characters the Serial monitor prints to the bluetooth
+      // Send any 14aracters the Serial monitor prints to the bluetooth
   //    bluetooth.print((char)Serial.read());
- //   }
+   }
+
   }
-
-
-
-
-
-}
-
-
-
